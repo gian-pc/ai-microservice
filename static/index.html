@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Microservice - Streaming Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>AI Generator</h1>
+            <p>Streaming Real con FastAPI + Google Gemini</p>
+        </div>
+
+        <!-- Formulario -->
+        <form onsubmit="event.preventDefault()">
+            <div class="form-group">
+                <label for="topic">💬 ¿Qué quieres generar?</label>
+                <input
+                    type="text"
+                    id="topic"
+                    placeholder="Ej: Explícame qué es FastAPI"
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="tone">🎯 Tono de respuesta</label>
+                <select id="tone">
+                    <option value="profesional">Profesional</option>
+                    <option value="casual">Casual</option>
+                    <option value="técnico">Técnico</option>
+                    <option value="creativo">Creativo</option>
+                </select>
+            </div>
+
+            <!-- Botones -->
+            <div class="btn-group">
+                <button
+                    type="button"
+                    id="btnStream"
+                    class="btn-primary"
+                    onclick="generateContentStream()"
+                >
+                    ⚡ Con Streaming
+                </button>
+                <button
+                    type="button"
+                    id="btnBlocking"
+                    class="btn-secondary"
+                    onclick="generateContentBlocking()"
+                >
+                    🐌 Sin Streaming
+                </button>
+            </div>
+        </form>
+
+        <!-- Resultado -->
+        <div id="result" class="result-box">
+            <div id="resultText" class="result-text"></div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
